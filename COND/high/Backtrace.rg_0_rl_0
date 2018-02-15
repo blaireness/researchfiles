@@ -1,0 +1,53 @@
+=== If no file names and line numbers are shown below, one can run
+            addr2line -Cfie my_exefile my_line_address
+    to convert `my_line_address` (e.g., 0x4a6b) into file name and line number.
+
+=== Please note that the line number reported by addr2line may not be accurate.
+    One can use
+            readelf -wl my_exefile | grep my_line_address'
+    to find out the offset for that line.
+
+ 0: ./Castro2d.gnu.MPI.ex() [0x520c8e]
+    amrex::BLBackTrace::print_backtrace_info(_IO_FILE*)
+    /home/bness/amrex//Src/Base/AMReX_BLBackTrace.cpp:105
+
+ 1: ./Castro2d.gnu.MPI.ex() [0x521815]
+    amrex::BLBackTrace::handler(int)
+    /home/bness/amrex//Src/Base/AMReX_BLBackTrace.cpp:51
+
+ 2: ./Castro2d.gnu.MPI.ex() [0x6d8284]
+    __model_parser_module_MOD_read_model_file
+    /home/bness/stuff/Castro/Exec/science/convective_flame/../../../Util/model_parser/model_parser.f90:81
+
+ 3: ./Castro2d.gnu.MPI.ex() [0x6f2cd9]
+    amrex_probinit
+    /home/bness/stuff/Castro/Exec/science/convective_flame/Prob_2d.f90:55
+
+ 4: ./Castro2d.gnu.MPI.ex() [0x54095d]
+    amrex::Amr::readProbinFile(int&)
+    /home/bness/amrex//Src/Amr/AMReX_Amr.cpp:1164
+
+ 5: ./Castro2d.gnu.MPI.ex() [0x5420f9]
+    amrex::Amr::InitializeInit(double, double, amrex::BoxArray const*, amrex::Vector<int> const*)
+    /home/bness/amrex//Src/Amr/AMReX_Amr.cpp:1237
+
+ 6: ./Castro2d.gnu.MPI.ex() [0x545997]
+    amrex::Amr::initialInit(double, double, amrex::BoxArray const*, amrex::Vector<int> const*)
+    /home/bness/amrex//Src/Amr/AMReX_Amr.cpp:1215
+
+ 7: ./Castro2d.gnu.MPI.ex() [0x54ee57]
+    amrex::Amr::init(double, double)
+    /home/bness/amrex//Src/Amr/AMReX_Amr.cpp:1088
+
+ 8: ./Castro2d.gnu.MPI.ex() [0x40a1e0]
+    main
+    /home/bness/stuff/Castro/Exec/science/convective_flame/../../../Source/driver/main.cpp:120
+
+ 9: /lib64/libc.so.6(__libc_start_main+0xf5) [0x7f93a871ec05]
+    ??
+    ??:0
+
+10: ./Castro2d.gnu.MPI.ex() [0x411177]
+    _start
+    ??:?
+
